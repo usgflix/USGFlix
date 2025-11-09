@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect, useState } from 'react';
 import type { ClinicSettings, PatientDetails } from '../types';
 import { getAISuggestion } from '../services/geminiService';
@@ -254,9 +253,16 @@ export const ReportDisplay: React.FC<ReportDisplayProps> = ({ report, setReport,
             ) : (
                 <div className="h-16 w-32 flex items-center justify-center bg-gray-100 rounded-md text-xs text-gray-400 border">Sem logo</div>
             )}
-            <button onClick={() => logoInputRef.current?.click()} className="text-xs text-blue-600 hover:underline">
-                Alterar Logo
-            </button>
+            <div className="flex flex-col items-center">
+                <button onClick={() => logoInputRef.current?.click()} className="text-xs text-blue-600 hover:underline">
+                    Alterar Logo
+                </button>
+                {settings.logo && (
+                     <button onClick={() => onSettingsChange({ ...settings, logo: '' })} className="text-xs text-red-500 hover:underline mt-1">
+                        Excluir Logo
+                    </button>
+                )}
+            </div>
             <input 
                 type="file" 
                 accept="image/png, image/jpeg, image/svg+xml"
