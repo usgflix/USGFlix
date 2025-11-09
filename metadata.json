@@ -1,0 +1,5 @@
+{
+  "name": "Ultrasound Report Generator",
+  "description": "An application to generate ultrasound reports based on operator input, with AI-powered review using the Gemini API. It supports various ultrasound types through a tabbed interface and allows for customizable report generation.",
+  "requestFramePermissions": []
+}
